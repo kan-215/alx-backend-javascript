@@ -1,26 +1,26 @@
-// 5-building.js
+
 export default class Building {
   constructor(sqft) {
-    if (typeof sqft !== 'number') {
-      throw new TypeError('Square footage must be a number');
+    if (new.target !== Building && new.target.prototype.evacuationWarningMessage === undefined) {
+      throw new Error('Class extending Building must override evacuationWarningMessage');
     }
-
     this._sqft = sqft;
-
-    // Prevent creating an instance of an abstract class
-    if (new.target === Building) {
-      throw new Error('Cannot instantiate an abstract class');
-    }
   }
 
-  // Getter for sqft
   get sqft() {
     return this._sqft;
   }
 
-  // Abstract method that must be implemented by subclasses
-  evacuationWarningMessage() {
-    throw new Error('Class extending Building must override evacuationWarningMessage');
+  set sqft(sqft) {
+    if (sqft === undefined || sqft === null) {
+      throw new Error('sqft must be defined');
+    } else if (typeof sqft === 'string') {
+      throw new Error('sqft must be a number');
+    } else if (typeof sqft !== 'number' || sqft <= 0) {
+      throw new Error('sqft must be a positive number');
+    } else if (!Number.isFinite(sqft)) {
+      throw new Error('sqft must be a finite number');
+    }
+    this._sqft = Number(sqft);
   }
 }
-

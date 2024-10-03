@@ -1,4 +1,3 @@
-// 2-hbtn_course.js
 export default class HolbertonCourse {
   constructor(name, length, students) {
     // Type validation in constructor

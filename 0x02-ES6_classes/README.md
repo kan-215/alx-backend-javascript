@@ -1,1 +1,1 @@
-This is the README file for the alx-backend-javascript
+README file for 0x02-ES6_classes

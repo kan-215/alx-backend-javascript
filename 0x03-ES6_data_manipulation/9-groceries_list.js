@@ -1,12 +1,13 @@
-export default function groceriesList() {
-  const groceryMap = new Map();
-  
-  // Adding items to the Map
-  groceryMap.set('Apples', 10);
-  groceryMap.set('Tomatoes', 10);
-  groceryMap.set('Pasta', 1);
-  groceryMap.set('Rice', 1);
-  groceryMap.set('Banana', 5);
+export const weakMap = new WeakMap();
 
-  return groceryMap;
-}
+export const queryAPI = (endpoint) => {
+  if (weakMap.has(endpoint)) {
+    const endpointData = weakMap.get(endpoint);
+    if (endpointData >= 4) {
+      throw new Error('Endpoint load is high');
+    }
+    weakMap.set(endpoint, (endpointData + 1));
+  } else {
+    weakMap.set(endpoint, 1);
+  }
+};

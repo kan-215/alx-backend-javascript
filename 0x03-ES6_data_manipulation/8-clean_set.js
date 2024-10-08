@@ -1,12 +1,11 @@
-export default function cleanSet(set, startString) {
-  const filteredValues = [];
+const groceriesList = () => {
+  const map = new Map();
+  map.set('Apples', 10);
+  map.set('Tomatoes', 10);
+  map.set('Pasta', 1);
+  map.set('Rice', 1);
+  map.set('Banana', 5);
+  return map;
+};
 
-  set.forEach(value => {
-    if (value.startsWith(startString)) {
-      const suffix = value.substring(startString.length);
-      filteredValues.push(suffix);
-    }
-  });
-
-  return filteredValues.join('-');
-}
+export default groceriesList;

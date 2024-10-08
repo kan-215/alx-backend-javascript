@@ -1,11 +1,16 @@
-const groceriesList = () => {
-  const map = new Map();
-  map.set('Apples', 10);
-  map.set('Tomatoes', 10);
-  map.set('Pasta', 1);
-  map.set('Rice', 1);
-  map.set('Banana', 5);
-  return map;
-};
+export default function cleanSet(set, startString) {
+  const parts = [];
+  if (!set || !startString || !(set instanceof Set) || typeof startString !== 'string') {
+    return '';
+  }
+  for (const value of set.values()) {
+    if (typeof value === 'string' && value.startsWith(startString)) {
+      const valueSubStr = value.substring(startString.length);
 
-export default groceriesList;
+      if (valueSubStr && valueSubStr !== value) {
+        parts.push(valueSubStr);
+      }
+    }
+  }
+  return parts.join('-');
+}

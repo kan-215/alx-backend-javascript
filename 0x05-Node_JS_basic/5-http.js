@@ -9,9 +9,9 @@ const app = http.createServer((req, res) => {
     res.statusCode = 200;
     res.end('Hello Holberton School!');
   } else if (url === '/students') {
+    const databasePath = process.argv[2];
     res.statusCode = 200;
     res.write('This is the list of our students\n');
-    const databasePath = process.argv[2];
 
     countStudents(databasePath)
       .then(() => {
@@ -26,8 +26,6 @@ const app = http.createServer((req, res) => {
   }
 });
 
-app.listen(1245, () => {
-  console.log('Server is listening on port 1245');
-});
-
+// Export the app to ensure compatibility with Jest tests and ESLint.
 module.exports = app;
+

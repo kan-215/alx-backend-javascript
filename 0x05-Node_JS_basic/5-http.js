@@ -110,7 +110,6 @@ app.on('request', (req, res) => {
   }
 });
 
-// Start the server and listen on the specified port and host.
 app.listen(PORT, HOST, () => {
   console.log(`Server listening at -> http://${HOST}:${PORT}`);
 });

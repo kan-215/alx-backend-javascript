@@ -98,7 +98,7 @@ const SERVER_ROUTE_HANDLERS = [
 ];
 
 /**
- * Handles incoming HTTP requests and delegates to the appropriate route handler.
+ * Handles incoming HTTP requests and delegates to appropriate route handler
  */
 app.on('request', (req, res) => {
   const matchedHandler = SERVER_ROUTE_HANDLERS.find((handler) => handler.route === req.url);

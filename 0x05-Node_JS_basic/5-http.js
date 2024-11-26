@@ -31,7 +31,7 @@ const countStudents = (dataPath) => new Promise((resolve, reject) => {
 
     for (const line of fileLines.slice(1)) {
       const studentRecord = line.split(',');
-      if (studentRecord.length !== dbFieldNames.length) continue; // Skip invalid lines
+      if (studentRecord.length !== dbFieldNames.length) continue;
       const studentPropValues = studentRecord.slice(0, studentRecord.length - 1);
       const field = studentRecord[studentRecord.length - 1];
       if (!Object.keys(studentGroups).includes(field)) {
@@ -56,9 +56,6 @@ const countStudents = (dataPath) => new Promise((resolve, reject) => {
   });
 });
 
-/**
- * Route handlers for the HTTP server.
- */
 const SERVER_ROUTE_HANDLERS = [
   {
     route: '/',
@@ -97,9 +94,6 @@ const SERVER_ROUTE_HANDLERS = [
   },
 ];
 
-/**
- * Handles incoming HTTP requests and delegates to appropriate route handler
- */
 app.on('request', (req, res) => {
   const matchedHandler = SERVER_ROUTE_HANDLERS.find((handler) => handler.route === req.url);
   if (matchedHandler) {

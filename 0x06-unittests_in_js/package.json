@@ -1,0 +1,15 @@
+{
+  "name": "task_0",
+  "version": "1.0.0",
+  "description": "Mocha unit tests for calculateNumber function",
+  "main": "0-calcul.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "Katami Alvin",
+  "license": "ISC",
+  "devDependencies": {
+    "mocha": "^10.2.0"
+  }
+}
+
